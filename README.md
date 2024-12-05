@@ -25,23 +25,7 @@ The **Receipt Processor API** is a FastAPI-based web service that processes rece
   1.  Base URL: http://127.0.0.1:8000
   2.  Interactive Docs: http://127.0.0.1:8000/docs
   3.  Redoc Docs: http://127.0.0.1:8000/redoc
- 
-  -**Create Virtual Environment**
-  ```
-  python3 -m venv .venv
-  ```
-  -**Activate Environment**
-  ```
-  source .venv/bin/activate
-  ```
-  -**Install Requirements**
-  ```
-  pip install -r requirements.txt
-  ```
-  -**Start App**
-  ```
-  uvicorn main:app --reload
-  ```
+  
 ## Key Features
 - **Receipt Submission**: Accepts receipts in JSON format via a POST endpoint.
 - **Unique Receipt ID**: Assigns a UUID to each receipt for later retrieval.
