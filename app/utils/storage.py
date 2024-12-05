@@ -1,10 +1,12 @@
 import uuid
+from models.receipt import Receipt
+
 
 storage = {}
 
-def store_receipt(receipt, points=None):
+def store_receipt(receipt: Receipt, points=None):
     receipt_id = str(uuid.uuid4())
-    storage[receipt_id] = {"receipt": receipt.dict(), "points": points}
+    storage[receipt_id] = {"receipt": receipt.model_dump(), "points": points}
     return receipt_id
 
 def get_points(receipt_id):

@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.routes import receipts
+from routes import receipts
+
 
 app = FastAPI(
     title="Receipt Processor",

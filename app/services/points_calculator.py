@@ -1,5 +1,7 @@
 from math import ceil
-from app.models.receipt import Receipt
+from models.receipt import Receipt
+from fastapi import HTTPException
+
 
 def calculate_points(receipt: Receipt):
     points = 0
@@ -26,12 +28,13 @@ def calculate_points(receipt: Receipt):
         if description_length % 3 == 0:
             points += ceil(float(item.price) * 0.2)
     
+    # add 6 points if purchase day is an odd number
     if int(receipt.purchaseDate.split("-")[2]) % 2 != 0:
         points += 6
     
     # add 10 points if time is between 2:00 PM and 4:00 PM
     time = receipt.purchaseTime.split(":")
-    hours, _ = map(int, receipt.purchaseDate.split(":"))
+    hours, _ = map(int, receipt.purchaseTime.split(":"))
     if 14 <= hours < 16:
         points += 10
 
