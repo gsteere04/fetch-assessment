@@ -19,7 +19,7 @@ async def process_receipt(receipt: Receipt):
             storage[receipt_id]["points"] = points
         else:
             raise HTTPException(
-                status_code=500, 
+                status_code=404, 
                 detail="Internal storage error: Receipt ID not found after storage"
             )
 
@@ -28,7 +28,7 @@ async def process_receipt(receipt: Receipt):
     except ValueError as ve:
         raise HTTPException(status_code=400, detail=f"Invalid data format: {ve}")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {e}")
+        raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {e}")
 
 @router.get("/receipt/{id}/points")
 async def get_receipt_points(id: str):
@@ -45,4 +45,4 @@ async def get_receipt_points(id: str):
         return {"points": points}
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {e}")
+        raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {e}")
