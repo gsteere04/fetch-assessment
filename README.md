@@ -3,22 +3,18 @@
 The **Receipt Processor API** is a FastAPI-based web service that processes receipts (provided as JSON objects), assigns a unique identifier (UUID) to each receipt, and calculates points based on a predefined set of rules. The points for a specific receipt can be retrieved using the generated UUID.
 
 ## Instructions to Run
-- **Clone the Repository**
-  ```
-  git clone <repository_url>
-  cd <repository_directory>
-  ```
 
-- **Build the Docker Image**
-  Build the application Docker image using the DockerFile
-  ```
-  docker build -t fetch-assessment .
-  ```
 
   -**Run the Application Container**
+  
+Pull Image:
   ```
-  docker run -d -p 8000:8000 --name fetch-assessment fetch-assessment
+docker pull gsteere04/fetch-assessment:latest
   ```
+Run Container:
+```
+docker run -d -p 8000:8000 gsteere04/fetch-assessment:latest
+```
   This maps port 8000 in the container to port 8000 on your local machine.
 
   -**Verify the Application is running**
